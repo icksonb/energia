@@ -29,11 +29,17 @@ class Seguranca
 		}
 		else
 		{
-			//Se o usuário está logado, bloqueia novo login
+			//Se o usuário está logado, bloqueia acesso a páginas não protegidas
 			if(in_array($url, $this->naoProtegidas))
 			{
 				header("Location: ".BASE_SITE_MENU."inicial");
 			}
+
+			//Se não estiver nenhuma empresa selecionada para verificação dos dados
+			if(!isset($_SESSION['empresa']) || empty($_SESSION['empresa'])) 
+			{
+				header("Location: ".BASE_SITE_MENU."seleciona");
+			}			
 		}
 	
 
