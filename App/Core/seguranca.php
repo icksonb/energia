@@ -36,7 +36,7 @@ class Seguranca
 			}
 
 			//Se não estiver nenhuma empresa selecionada para verificação dos dados
-			if(!isset($_SESSION['empresa']) || empty($_SESSION['empresa'])) 
+			if( (!isset($_SESSION['empresa']) || empty($_SESSION['empresa'])) && $url != "seleciona") 
 			{
 				header("Location: ".BASE_SITE_MENU."seleciona");
 			}			
