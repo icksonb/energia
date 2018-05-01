@@ -38,14 +38,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Login</a>
+                
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                       <a href="cadastro">
-                            Registrar
-                        </a>
+                       
                     </li>
 					
                 </ul>
@@ -63,32 +61,22 @@
                             <form id="login" method="POST">
                                 <div class="card" data-background="color" data-color="blue">
                                     <div class="card-header">
-                                        <h3 class="card-title">Entrar</h3>
+                                        <h3 class="card-title">Selecionar</h3>
                                     </div>
                                     <div class="card-content">
                                         <div class="form-group">
-                                            <label>Usuário</label>
-                                            <input type="usuario" placeholder="Usuário" name="usuario" id="usuario" class="form-control input-no-border" required="required">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Senha</label>
-                                            <input type="password" placeholder="******" name="senha" id="senha" class="form-control input-no-border" required="required">
+                                            <label>Selecione uma empresa</label>
+                                            <select class="selectpicker" name="empresa" data-style="btn" title="Selecione uma das empresas" data-size="7" required>
+                                                <?php foreach($empresas as $id => $nome): ?>
+                                                    <option value="<?= $id ?>"><?= $nome ?></option>
+                                                <?php endforeach ?>
+                                            </select>
                                         </div>
                                     </div>
                                     
                                     <div class="card-footer text-center">
-                                        <button type="submit" class="btn btn-fill btn-wd ">Entrar</button>
-                                        <div class="forgot">
-                                            <a href="esqueceu.php">Esqueceu sua senha?</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-content">
-                                    	<div class="alert <?= $tipoMensagem ?>">
-                                           	<span><?= $mensagem ?></span>
-                                    	</div>
-                                    </div>
-                                    
+                                        <button type="submit" class="btn btn-fill btn-wd ">Selecionar</button>
+                                    </div>                                    
                                 </div>
                             </form>
                         </div>
@@ -143,7 +131,6 @@
 	<script type="text/javascript">
         $().ready(function(){
             demo.checkFullPageBackgroundImage();
-            demo.login();
         });
 	</script>
 
