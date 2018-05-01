@@ -15,11 +15,11 @@ class usuariosDAO extends database
 		unset($var);
 	}
 	
-	public function select($fields="*",$add="")
+	public function select($fields="*",$add="",$params=null)
 	{
 		if(strlen($add)>0) $add = " ".$add;
 		$sql = "SELECT $fields FROM USUARIOS $add";
-		return $this->selectDB($sql,null);
+		return $this->selectDB($sql,$params);
 	}
 	
 	public function insert($fields,$params=null)
