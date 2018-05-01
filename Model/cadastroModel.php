@@ -36,6 +36,10 @@ class cadastroModel
 		return $this->cadastro;
 	}
 
+	/*
+	* VERIFICA SE OS DADOS SEGUEM OS PADRÕES ESTABELECIDOS
+	*/	
+
 	public function verificaDados()
 	{
 
@@ -80,6 +84,9 @@ class cadastroModel
 	}
 
 
+	/*
+	* VERIFICA SE O USUÁRIO JÁ EXISTE
+	*/
 	public function verificaUsuario()
 	{
 		$retornoDB = $this->bancoDados->count('usuario', 
@@ -103,6 +110,9 @@ class cadastroModel
 		
 	}
 
+	/*
+	* VERIFICA SE O EMAIL JÁ EXISTE
+	*/
 	public function verificaEmail()
 	{
 		$retornoDB = $this->bancoDados->count('email', 
@@ -125,6 +135,9 @@ class cadastroModel
 		}
 	}
 
+	/*
+	* CADASTRA O USUÁRIO
+	*/
 	public function cadastraUsuario()
 	{
 		$fields = "usuario, senha, email, telefone, primeiroNome, sobrenome, genero";

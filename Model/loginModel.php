@@ -67,11 +67,10 @@ class loginModel
 			}
 
 			//Se tiver tudo certo
-			var_dump($senhaStr." ".$this->senha);
 			if(password_verify($senhaStr, $this->senha))
 			{
 				//Verifica se o e-mail está confirmado
-				if ($verificacao === '0')
+				if ($this->verificacao === '0')
 				{
 					$this->mensagem = "E-mail não confirmado.";
 					return false;
