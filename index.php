@@ -19,9 +19,16 @@
 	* o primeiro é o controller (chamado logo a seguir)
 	* o segundo é o action do controller
 	*/
+
 	$var = explode("/", $_SERVER['PATH_INFO']);
+	
+	//Se tiver sem endereço
+	if(count($var) == 1)
+		header("Location: ".BASE_SITE_MENU."inicial");
+	
+	//Se tiver apenas o primeiro parâmetros
 	if (count($var) <= 2)
-		$AutoLoad = new AutoLoad($var[1], ""); //Adiciona o php do Controller
+		$AutoLoad = new AutoLoad($var[1], ""); //Adiciona o php do Controller (a 2 variável é igual a 1)
 	else
 		$AutoLoad = new AutoLoad($var[1], $var[2]); //Adiciona o php do Controller
 	
