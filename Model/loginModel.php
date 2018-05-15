@@ -1,5 +1,5 @@
 <?php
-require_once(ROOT.DS.'DAO'.DS.'usuariosDAO.php');
+require_once(BASE_DAO.DS.'usuariosDAO.php');
 class loginModel
 {
 

@@ -1,5 +1,6 @@
 <?php
 require_once(ROOT.DS.'App'.DS.'Core'.DS.'conexao.php');
+require_once(BASE_CLASS.DS.'usuarios.php');
 class usuariosDAO extends database
 {
 	public function __construct(){}
@@ -15,11 +16,11 @@ class usuariosDAO extends database
 		unset($var);
 	}
 	
-	public function select($fields="*",$add="",$params=null)
+	public function select($fields="*",$add="",$params=null, $class=null)
 	{
 		if(strlen($add)>0) $add = " ".$add;
 		$sql = "SELECT $fields FROM USUARIOS $add";
-		return $this->selectDB($sql,$params);
+		return $this->selectDB($sql,$params,$class);
 	}
 	
 	public function insert($fields,$params=null)

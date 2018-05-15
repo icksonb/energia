@@ -1,7 +1,7 @@
 <?php
 
-require_once(ROOT.DS.'DAO'.DS.'empresasDAO.php');
-require_once(ROOT.DS.'DAO'.DS.'usuariosEmpresasDAO.php');
+require_once(BASE_DAO.DS.'empresasDAO.php');
+require_once(BASE_DAO.DS.'usuariosEmpresasDAO.php');
 
 class selecionaModel
 {
