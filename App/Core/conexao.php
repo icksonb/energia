@@ -48,18 +48,25 @@ abstract class database{
 		$this->conexao = null;
 	}
 	
-	/*Método select que retorna um VO ou um array de objetos*/
-	public function selectDB($sql,$params=null)
+	/*Método select que retorna um VO ou um array (de objetos)*/
+	public function selectDB($sql,$params=null, $class=null)
 	{
 		$query=$this->connect()->prepare($sql);
 		$query->execute($params);
 		try
 		{
-			$rs = $query->fetchAll(PDO::FETCH_ASSOC);	
+			if(isset($class))
+			{
+				$rs = $query->fetchAll(PDO::FETCH_CLASS, $class);	
+			}
+			else
+			{
+				$rs = $query->fetchAll(PDO::FETCH_ASSOC);	
+			}
 		}
 		catch(Exception $e)
 		{
-			$rs = "";
+			$rs = false;
 		}
 
 		self::__destruct();
@@ -71,7 +78,15 @@ abstract class database{
 		$conexao=$this->connect();
 		$query=$conexao->prepare($sql);
 		$query->execute($params);
-		$rs = $conexao->lastInsertId() or die(print_r($query->errorInfo(), true));
+		try
+		{
+			$rs = $conexao->lastInsertId();
+			$rs = true;
+		}
+		catch(Exception $e)
+		{
+			$rs = false;
+		}
 		self::__destruct();
 		return $rs;
     }
@@ -80,7 +95,14 @@ abstract class database{
 	public function updateDB($sql,$params=null){
 		$query=$this->connect()->prepare($sql);
 		$query->execute($params);
-		$rs = $query->rowCount() or die(print_r($query->errorInfo(), true));
+		try
+		{
+			$rs = $query->rowCount();
+		}
+		catch(Exception $e)
+		{
+			$rs = false;
+		}
 		self::__destruct();
 		return $rs;
     }

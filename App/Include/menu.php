@@ -36,7 +36,7 @@
 
 
 	<li <?php if($menu == 1) echo "class='active'";?> >
-	    <a href="<?php echo BASE_SITE_MENU?>inicial.php">
+	    <a href="<?php echo BASE_SITE_MENU?>inicial">
 	        <i class="ti-panel"></i>
 	        <p>Inicial</p>
 	    </a>
@@ -53,37 +53,37 @@
 		<div class="collapse<?php if($menu > 20 && $menu < 29) echo "-out";?>" id="dashboardEstabelecimento">
 			<ul class="nav">
 				<li <?php if($menu == 21) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/cadastro.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/cadastro">
 						<span class="sidebar-mini">CA</span>
 						<span class="sidebar-normal">Cadastro</span>
 					</a>
 				</li>
 				<li <?php if($menu == 22) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/faturas.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/faturas">
 						<span class="sidebar-mini">FA</span>
 						<span class="sidebar-normal">Faturas</span>
 					</a>
 				</li>
 				<li <?php if($menu == 23) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/equipamentos.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/equipamentos">
 						<span class="sidebar-mini">EQ</span>
 						<span class="sidebar-normal">Equipamentos</span>
 					</a>
 				</li>
 				<li <?php if($menu == 24) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/diarias.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/diarias">
 						<span class="sidebar-mini">ED</span>
 						<span class="sidebar-normal">Estatísticas Diárias</span>
 					</a>
 				</li>
 				<li <?php if($menu == 25) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/mensais.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/mensais">
 						<span class="sidebar-mini">EM</span>
 						<span class="sidebar-normal">Estatísticas Mensais</span>
 					</a>
 				</li>
 				<li <?php if($menu == 26) echo "class='active'";?>>
-					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/dispositivos.php">
+					<a href="<?php echo BASE_SITE_MENU?>estabelecimento/dispositivos">
 						<span class="sidebar-mini">D</span>
 						<span class="sidebar-normal">Dispositivos</span>
 					</a>
