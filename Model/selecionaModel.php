@@ -77,5 +77,23 @@ class selecionaModel
 
 
 
+	/*
+	* RETORNA OS IDS + NOMES DAS EMPRESAS PARA O ADMIN
+	*/
+	public function listaEmpresasAdmin()
+	{
+		//Seleciona o nome das empresas
+		$retornoDB = $this->empresasDAO->select("NOME, ID");
+	
+		foreach($retornoDB as $row)
+		{
+			$this->idsNomesEmpresas[$row['ID']] = $row['NOME'];
+		}
+	
+		return $this->idsNomesEmpresas;
+		
+	}
+
+
 }
 ?>

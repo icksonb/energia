@@ -163,4 +163,28 @@
 		</div>
 	</li>
 
+	<?php if(isset($_SESSION['admin'])): ?>
+		<?php if($_SESSION['admin']) : ?>
+			<li>
+			    <a data-toggle="collapse" href="#dashboardAdmin" aria-expanded="false">
+			        <i class="ti-lock"></i>
+			        <p>Administrador
+			            <b class="caret"></b>
+			        </p>
+			    </a>
+				<div class="collapse" id="dashboardAdmin">
+					<ul class="nav">
+
+						<li <?php if($menu == 51) echo "class='active'";?>>
+							<a href="<?php echo BASE_SITE_MENU?>admin/dispositivos">
+								<span class="sidebar-mini">D</span>
+								<span class="sidebar-normal">Dispositivos</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		<?php endif; ?>
+	<?php endif; ?>
+
 </ul>

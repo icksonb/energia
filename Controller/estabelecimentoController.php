@@ -14,6 +14,9 @@ class Estabelecimento
 		$this->Model = new estabelecimentoModel();
 	}
 
+	/*
+	* TELA DE CADASTRO DAS EMPRESAS
+	*/
 	public function cadastro()
 	{
 		//Somente atualiza dados das empresas
@@ -58,6 +61,16 @@ class Estabelecimento
 		$usuarios = $this->Model->getUsuarios($_SESSION['empresa']);
 		require(LOCAL_ESTABELECIMENTO.DS."cadastro.php");
 	}
+
+	/*
+	* TELA DE DISPOSITIVOS
+	*/
+	public function dispositivos()
+	{
+		$dispositivos = $this->Model->getDispositivos();
+		require(LOCAL_ESTABELECIMENTO.DS."dispositivos.php");	
+	}
+
 
 }
 ?>

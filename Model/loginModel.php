@@ -77,6 +77,11 @@ class loginModel
 				}
 				else
 				{
+					//Se o usuário é administrador do sistema, retorna true
+					if ($this->verificacao == '2')
+					{
+						$_SESSION['admin'] = true;
+					}
 					return true;
 				}
 			}

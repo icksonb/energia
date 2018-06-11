@@ -3,6 +3,8 @@
 require_once(BASE_DAO.DS.'empresasDAO.php');
 require_once(BASE_DAO.DS.'usuariosDAO.php');
 require_once(BASE_DAO.DS.'usuariosEmpresasDAO.php');
+require_once(BASE_DAO.DS.'dispositivosDAO.php');
+
 
 class estabelecimentoModel
 {
@@ -10,12 +12,14 @@ class estabelecimentoModel
 	private $empresasBD;
 	private $usuariosEmpresasBD;
 	private $usuariosBD;
-
+	private $dispositivosBD;
+	
 	function __construct()
 	{
 		$this->empresasBD = new empresasDAO();
 		$this->usuariosBD = new usuariosDAO();
 		$this->usuariosEmpresasBD = new usuariosEmpresasDAO();
+		$this->dispositivosBD = new dispositivosDAO();
 	}
 
 	public function getDadosEmpresa($id)
@@ -91,12 +95,20 @@ class estabelecimentoModel
 		}
 	}
 
-
-
 	public function deletaUsuario($usuario="-")
 	{
 		$this->usuariosEmpresasBD->delete("EMPRESAS_ID=? AND USUARIOS_ID=?", 
 			array($_SESSION['empresa'], $usuario));
+	}
+
+	/*
+	* RETORNA OS DADOS DOS DISPOSITIVOS
+	*/
+	public function getDispositivos()
+	{
+		
+		$dispositivos = $this->dispositivosBD->select("*", "WHERE ATIVADO=?", array("1"), "dispositivos");	
+		return $dispositivos;
 	}
 }
 

@@ -4,6 +4,7 @@ class Seguranca
 {
 	
 	var $naoProtegidas = array('login', 'esqueci', 'recuperar', 'cadastro');
+	var $admin = array('admin');
 	//private $redirecionar = "".BASE_SITE_MENU."inicial";
 
 	function __construct($url="inicial")
@@ -11,6 +12,16 @@ class Seguranca
 		session_start();
 
 		//DESENVOLVER AQUI OS COOKIES!!!!
+
+
+		/*
+		* Verifica inicialmente se a página a ser acessada é permissão de admin
+		*/
+
+		if(in_array($url, $this->admin) && !$_SESSION['admin'])
+		{
+			header("Location: ".BASE_SITE_MENU."inicial");
+		}
 
 		/*
 		* Verificar se o usuário está logado
@@ -42,6 +53,7 @@ class Seguranca
 			}			
 		}
 	
+		
 
 
 	}

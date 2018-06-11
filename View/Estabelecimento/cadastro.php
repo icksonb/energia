@@ -100,29 +100,34 @@
 
 	                            <div class="card-header">
 	                                <h4 class="card-title pull-left">Usuários</h4>
+	                                
+	                                <?php if($_SESSION['admin']): ?>
 	                                <btn class="btn btn-sm btn-success btn-icon pull-right" onclick="adicionar()"><i class="fa fa-plus"></i></btn>
+	                            	<?php endif; ?>
 	                            </div>
 	                            <br>
 
 	                            <div class="card-content">
 	                                <ul class="list-unstyled team-members">
-                                        
+                                    
                                     <?php foreach($usuarios as $usuario): ?> 
 
-                                    	<li>
-                                            <div class="row">
-                                                
-                                                <div class="col-xs-8">
-                                                    <?= $usuario[0]->getPrimeiroNome()." ".$usuario[0]->getSobrenome(); ?>
-                                                    <br />
-                                                    <span class="text-success"><small><?= $usuario[0]->getEmail();?> | <?= $usuario[0]->getUsuario(); ?> </small></span>
-                                                </div>
-                                                <div class="col-xs-4 text-right">
-                                                    <btn class="btn btn-sm btn-danger btn-icon" onclick="deleta( <?= $usuario[0]->getId();?> )"><i class="fa fa-close"></i></btn>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    <?php endforeach; ?>    
+	                                    	<li>
+	                                            <div class="row">
+	                                                
+	                                                <div class="col-xs-8">
+	                                                    <?= $usuario[0]->getPrimeiroNome()." ".$usuario[0]->getSobrenome(); ?>
+	                                                    <br />
+	                                                    <span class="text-success"><small><?= $usuario[0]->getEmail();?> | <?= $usuario[0]->getUsuario(); ?> </small></span>
+	                                                </div>
+	                                                <div class="col-xs-4 text-right">
+	                                                	<?php if($_SESSION['admin']): ?>
+	                                                    <btn class="btn btn-sm btn-danger btn-icon" onclick="deleta( <?= $usuario[0]->getId();?> )"><i class="fa fa-close"></i></btn>
+	                                                	<?php endif; ?>
+	                                                </div>
+	                                            </div>
+	                                        </li>
+	                                <?php endforeach; ?>    
 	                                </ul>
 	                            </div>
 	                        </div>
@@ -314,6 +319,7 @@
 	}
 </script>
 
+<?php if($_SESSION['admin']): ?>
 <script type="text/javascript">
 	
 function adicionar()
@@ -359,5 +365,5 @@ function adicionar()
             }    
         }
 </script>
-
+<?php endif; ?>
 </html>

@@ -67,9 +67,9 @@
                                         <div class="form-group">
                                             <label>Selecione uma empresa</label>
                                             <select class="selectpicker" name="empresa" data-style="btn" title="Selecione uma das empresas" data-size="7" required>
-                                                <?php foreach($empresas as $id => $nome): ?>
-                                                    <option value="<?= $id ?>"><?= $nome ?></option>
-                                                <?php endforeach ?>
+                                                    <?php foreach($empresas as $id => $nome): ?>
+                                                        <option value="<?= $id ?>"><?= $nome ?></option>
+                                                    <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
