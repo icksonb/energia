@@ -60,7 +60,7 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="card card-wizard" id="wizardCard">
-                                <form id="wizardForm" method="POST" action="">
+                                <form id="wizardForm" method="POST" onsubmit="return false;">
                                     <div class="card-header text-center">
                                         <h4 class="card-title">Cadastro - Gerenciamento de Energia</h4>
                                         <p class="category">Cadastro simples e rápido</p>
@@ -72,7 +72,6 @@
                                         <ul class="nav">
                                             <li><a href="#tab1" data-toggle="tab">Dados pessoais</a></li>
                                             <li><a href="#tab2" data-toggle="tab">Dados do sistema</a></li>
-                                            <li><a href="#tab3" data-toggle="tab">finalização</a></li>
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
@@ -139,6 +138,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        
                                             <div class="tab-pane" id="tab2">
                                                 <h5 class="text-center">Preencha informações para nosso sistema</h5>
                                                 <div class="row">
@@ -199,30 +199,13 @@
                                                     
                                                 </div>
                                             </div>
-                                            <div class="tab-pane" id="tab3">
-                                                <h3 class="text-center text-space">Quase lá! <br>
-                                                    <small>
-                                                        Após clicar em <b>finalizar</b>, você deve:
-                                                        <ul>
-                                                            <li>
-                                                                Clicar no link que será enviado para seu <b>e-mail</b>, para efetivação do seu cadastro;
-                                                            </li>
-                                                            <li>
-                                                                Aguardar o administrador da sua empresa o adicionar 
-                                                                na plataforma.
-                                                            </li>
-                                                        </ul>
-                                                         Ao clicar em <b>Finalizar</b> você concorda com os 
-                                                         <a href="termos.html">termos de serviço</a>.
-                                                         </small>
-                                                </h3>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Voltar</button>
                                         <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Próximo</button>
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd btn-finish pull-right">Finalizar</button>
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd btn-finish pull-right" onclick="cadastraDados()">Finalizar</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </form>
@@ -274,6 +257,8 @@
 
 	<!-- Paper Dashboard PRO DEMO methods, don't include it in your project! -->
 	<script src="<?php echo BASE_ASSETS; ?>/js/demo.js"></script>
+
+    <script src="<?php echo BASE_ASSETS; ?>/js/app/cadastro.js"></script>
 
 	<script type="text/javascript">
         $().ready(function(){
