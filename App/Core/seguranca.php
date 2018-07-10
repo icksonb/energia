@@ -2,17 +2,26 @@
 
 class Seguranca
 {
-	
-	var $naoProtegidas = array('login', 'esqueci', 'recuperar', 'cadastro');
+
+	//Páginas que não necessitam estar logado
+	var $naoProtegidas = array('login', 'esqueci', 'recuperar', 'cadastro'); 
+
 	var $admin = array('admin');
 	//private $redirecionar = "".BASE_SITE_MENU."inicial";
 
-	function __construct($url="inicial")
+
+	function __construct($url="inicial", $API="")
 	{
 		session_start();
 
 		//DESENVOLVER AQUI OS COOKIES!!!!
 
+		/*
+		* Páginas de API (não logadas) possuem o mesmo nome que a URL normal
+		* Devido a isso, a URL recebe a API
+		*/
+		if($API != "")
+			$url = $API;
 
 		/*
 		* Verifica inicialmente se a página a ser acessada é permissão de admin
@@ -29,7 +38,7 @@ class Seguranca
 		*/
 		if(!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) 
 		{
-		    /*
+			/*
 		    * Se o usuário não estiver logado 
 		    * E estiver acessando páginas protegidas, vão para login
 		    */

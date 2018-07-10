@@ -9,11 +9,14 @@ class AutoLoad
 		
 		require('seguranca.php');		
 
-		//Verifica a segurança
-		$Seguranca = new Seguranca($url);
+		//Verifica o nível de acesso
+		if($url == 'API')
+			$Seguranca = new Seguranca($url, $action); //Páginas de API
+		else
+			$Seguranca = new Seguranca($url); //Páginas normais (sem ser API)
 
 		
-		if ($url != 'Assets')
+		if ($url != 'Assets' || $url != 'API')
 		{
 			require(ROOT.DS."Controller".DS.$url."Controller.php");
 		
