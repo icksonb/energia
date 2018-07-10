@@ -1,5 +1,8 @@
 <?php
 
+	//Páginas que não necessitam de Controller
+	$paginaSemController = array('API', 'Assets');
+
 	//Adiciona os headers necessários
 	header('Content-Type: text/html; charset=utf-8');
 
@@ -26,25 +29,16 @@
 	if(count($var) == 1)
 		header("Location: ".BASE_SITE_MENU."inicial");
 	
-	//Se tiver apenas o primeiro parâmetros
-	if (count($var) <= 2)
-		$AutoLoad = new AutoLoad($var[1], ""); //Adiciona o php do Controller (a 2 variável é igual a 1)
-	else
-		$AutoLoad = new AutoLoad($var[1], $var[2]); //Adiciona o php do Controller
-	
-
 	/*
-
-	CHAMAR NO MODEL!!!!!!!!!!!
-
-	echo "<br>METODO: ".$_SERVER['REQUEST_METHOD'];
-
-	$param = $_REQUEST;
-
-	foreach($param as $key=>$val) 
-	{
-		echo "<br>CHAVE: ".$key;
-		echo "<br>VALOR: ".$val;
-	}
+	* Se a página não tiver controller, não ativa o AutoLoad
+	* Páginas - API, Assets
 	*/
+	if(!in_array($var[1], $paginaSemController))
+	{
+		//Se tiver apenas o primeiro parâmetros
+		if (count($var) <= 2)
+			$AutoLoad = new AutoLoad($var[1], ""); //Adiciona o php do Controller (a 2 variável é igual a 1)
+		else
+			$AutoLoad = new AutoLoad($var[1], $var[2]); //Adiciona o php do Controller
+	}	
 ?>
